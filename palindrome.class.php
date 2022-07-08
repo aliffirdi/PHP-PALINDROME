@@ -30,7 +30,7 @@ class palindrome
             if ($value[$firstIndex] != $value[$lastIndex]) {
 
                 return false;
-                
+
             }
 
         }
@@ -79,6 +79,39 @@ class palindrome
         }
 
         return true;
+
+    }
+
+    public function checkv5 ($value=null)
+    {
+
+        return $this->isPalindromeRecursiveMethod( $value, 0 );
+
+    }
+
+    private function isPalindromeRecursiveMethod ( $value = null, $i )
+    {
+
+        if ($i < strlen($value) / 2) {
+
+            $firstIndex = $i;
+            $lastIndex  = strlen($value) - $i - 1;
+
+            if ($value[$firstIndex] != $value[$lastIndex]) {
+
+                return false;
+
+            } else {
+
+                return $this->isPalindromeRecursiveMethod( $value, $i + 1 );
+                
+            }
+
+        } else {
+
+            return true;
+
+        }
 
     }
 
